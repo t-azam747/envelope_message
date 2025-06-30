@@ -1,0 +1,155 @@
+:root{
+  --primary: #fff;
+  --bg-color: #bde0fe;
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: rgba(206, 103, 222, 0.646);
+}
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+.envelope-wrapper > .envelope {
+  position: relative;
+  width: 500px;
+  height: 330px;
+}
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 230px solid var(--envelope-tab);
+  border-right: 250px solid transparent;
+  border-left: 250px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 180px solid transparent;
+  border-right: 250px solid var(--envelope-cover);
+  border-bottom: 150px solid var(--envelope-cover);
+  border-left: 250px solid var(--envelope-cover);
+  bottom: 0;
+}
+.envelope > .letter {
+  position: relative;
+  left: 20%;
+  bottom: 0;
+  width: 55%;
+  height: 75%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 100px var(--shadow-color);
+  padding: 20px 10px;
+}
+.envelope > .letter > .text > p {
+  font-family: "The Girl Next Door", cursive;
+  font-weight: 100;
+  font-style: normal;
+  color: black
+  text-align: left;
+  font-size: 5.5px;
+}
+.heart {
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+.heart:before {
+  top: -7.5px;
+}
+.heart:after {
+  right: 7.5px;
+}
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+.flap > .envelope > .letter {
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+.flap > .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+.gif{
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 0;
+    height: 0px;
+}
+.gif > .overlay{
+    display: block;
+    justify-content: center;
+    height: 50%;
+    width: 50%;
+}
+.gif > h4{
+    text-align: center;
+    color: red ;
+    font-family: poppins; 
+    font-size: 100;
+    color: #fff;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+}
+}
+
+.gif > a{
+    text-align: center;
+    position: relative;
+    justify-content: center;
+}
